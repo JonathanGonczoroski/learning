@@ -18,6 +18,7 @@ def register_message(assunto, mensagem):
 def send():
     assunto = request.forms.get('assunto')
     mensagem = request.forms.get('mensagem')
+    register_message(assunto, mensagem)
     return 'Mensagem enfileirada ! Assunto: {} Mensagem {}'.format(
         assunto, mensagem
     )
