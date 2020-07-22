@@ -8,7 +8,8 @@ services:
   db:
     image: postgres:12.3
     environment:
-        - POSTGRES_PASSWORD="postgres"
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
     volumes:
       #Volume dos dados
       - dados:/var/lib/postgresql/data
@@ -17,7 +18,7 @@ services:
       - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
       - banco
-  frontend: 
+  frontend:
     image: nginx:1.13
     volumes:
       #Site
